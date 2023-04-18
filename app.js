@@ -1,19 +1,40 @@
-let getCharacterBtn = $(".snow");
+let getCharacterBtn = $(".random-character");
 let getResultDiv = $(".results");
+let clearBtn = $("<button></button>");
+
+clearBtn.text("Clear");
+
+$("body").append(clearBtn);
 
 getCharacterBtn.on("click", () => {
+	let randNum = Math.floor(Math.random() * 1000 + 1);
+	console.log(randNum);
 	let info = '<div class="info-card">';
-	$.get("https://www.anapioficeandfire.com/api/characters/583", (character) => {
-		console.log(character.name);
+	$.get(`https://www.anapioficeandfire.com/api/characters/${randNum}`, (character) => {
 		if (character.died === "") {
 			character.died = "not dead...yet";
 		}
+		if (character.born === "") {
+			character.born = "no date set";
+		}
+		if (character.titles.length === 0) {
+			character.titles = ["no titles"];
+		}
+		if (character.playedBy === [""]) {
+			character.playedBy = ["Not played by anyone in the show"];
+		}
+
+		console.log(character.titles.length);
 		info += `<br>Name: ${character.name}</br>`;
 		info += `<br>Gender: ${character.gender}</br>`;
 		info += `<br>Born: ${character.born}</br>`;
 		info += `<br>Died: ${character.died}</br>`;
 		info += `<br>Titles: ${character.titles}</br>`;
-		info += `<br>Played By: <a href="https://www.google.com/search?q=kit+harington&sxsrf=APwXEdcTsxsupDH9vio-EQOpObiAgDwReg%3A1681838224943&source=hp&ei=kNA-ZLiJN6T4kPIPotOE-Ac&iflsig=AOEireoAAAAAZD7eoOCJSQ7YtvrnJ28kzUX5av4ALPWl&gs_ssp=eJzj4tLP1TewLDPJyCs0YPTizc4sUchILMrMSy_JzwMAcskI9A&oq=kit+h&gs_lcp=Cgdnd3Mtd2l6EAEYADIKCC4QsQMQigUQQzIHCAAQigUQQzIICAAQgAQQsQMyCggAEIoFELEDEEMyCAgAEIAEELEDMggILhCABBCxAzIICAAQgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQ6BAgjECc6CAgAEIoFEJECOg4ILhCABBCxAxCDARDUAjoLCC4QxwEQ0QMQgAQ6BQguEIAEOhAILhCKBRCxAxDHARDRAxAKOg4ILhCABBCxAxDHARDRAzoLCAAQgAQQsQMQgwE6CwgAEIoFELEDEIMBOgsILhCvARDHARCABDoGCAAQFhAeUABYihFgtRdoAXAAeACAAWKIAYYEkgEBNpgBAKABAQ&sclient=gws-wiz">${character.playedBy}</a></br>`;
+		info += `<br>Played By: <a href="https://www.google.com/search?q=${character.playedBy}">${character.playedBy}</a></br>`;
 		$(getResultDiv).html(info);
 	});
+});
+
+clearBtn.on("click", () => {
+	getResultDiv.empty();
 });
