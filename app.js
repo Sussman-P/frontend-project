@@ -73,14 +73,14 @@ function getHouseInfo() {
 	let randNum = Math.floor(Math.random() * 444 + 1);
 	console.log(randNum);
 	$.get(`https://www.anapioficeandfire.com/api/houses/${randNum}`, (house) => {
+		houseClearBtn.show();
 		let info = '<div class="house-card">';
-
 		info += `<br><strong>House Name</strong>: ${house.name}</br>`;
 		if (house.region === "") {
 			info += `<br><strong>Region</strong>: There is no Region associated with this house!`;
+		} else {
+			info += `<br><strong>Region</strong>: ${house.region}</br>`;
 		}
-		info += `<br><strong>Region</strong>: ${house.region}</br>`;
-		houseClearBtn.show();
 		info += "<br></br>";
 		info += "</div>";
 		$(getHouseResultDiv).html(info);
