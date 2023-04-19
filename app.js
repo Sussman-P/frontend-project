@@ -1,3 +1,4 @@
+// Getting all the elements needed.
 let getCharacterBtn = $(".random-character");
 let getHouseBtn = $(".rand-house");
 let getBookBtn = $(".rand-book");
@@ -7,10 +8,13 @@ let getBookResultDiv = $(".book-results");
 let charClearBtn = $(".char-clear-btn");
 let houseClearBtn = $(".house-clear-btn");
 let bookClearBtn = $(".book-clear-btn");
+
+// Hiding the clear button.
 houseClearBtn.hide();
 charClearBtn.hide();
 bookClearBtn.hide();
 
+// Generate Random Character Facts
 function getCharacterInfo() {
 	let randNum = Math.floor(Math.random() * 2138 + 1);
 	console.log(randNum);
@@ -64,6 +68,7 @@ function getCharacterInfo() {
 	});
 }
 
+// Generate Random house Facts
 function getHouseInfo() {
 	let randNum = Math.floor(Math.random() * 444 + 1);
 	console.log(randNum);
@@ -82,48 +87,49 @@ function getHouseInfo() {
 	});
 }
 
+//Random Book info
 function getBookInfo() {
 	let randNum = Math.floor(Math.random() * 12 + 1);
 	console.log(randNum);
 
 	$.get(`https://www.anapioficeandfire.com/api/books/${randNum}`, (book) => {
 		let info = '<div class="book-card">';
-
 		bookClearBtn.show();
-		info += `<br><a href='https://www.google.com/search?q=GOT%20${book.name}'>${book.name}</a></br>`;
+		info += `<br><strong>Book: </strong><a href='https://www.google.com/search?q=GOT%20${book.name}'>${book.name}</a></br>`;
 		info += "<br></br>";
-
 		info += "</div>";
-
 		$(getBookResultDiv).html(info);
 	});
 }
 
-// Generate Random Character Facts
+// Click Events
 getCharacterBtn.on("click", () => {
 	getCharacterInfo();
 });
 
-// Generate Random house Facts
+// Click Events
 getHouseBtn.on("click", () => {
 	getHouseInfo();
 });
 
-//Random Book info
+// Click Events
 getBookBtn.on("click", () => {
 	getBookInfo();
 });
 
+// Clear Button Events
 charClearBtn.on("click", () => {
 	getCharResultDiv.empty();
 	charClearBtn.hide();
 });
 
+// Clear Button Events
 houseClearBtn.on("click", () => {
 	getHouseResultDiv.empty();
 	houseClearBtn.hide();
 });
 
+// Clear Button Events
 bookClearBtn.on("click", () => {
 	getBookResultDiv.empty();
 	bookClearBtn.hide();
