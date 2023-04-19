@@ -4,8 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Game Of Thrones Finder</title>
+		<title>GoT Universe Generator</title>
+		<link
+			rel="icon"
+			href="https://icon-library.com/images/iron-throne-icon/iron-throne-icon-25.jpg"
+		/>
 		<link rel="stylesheet" href="app.css" />
+		<link rel="stylesheet" href="/resources/stylesheet.css" />
 		<script
 			src="https://code.jquery.com/jquery-3.6.4.js"
 			integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
@@ -15,12 +20,33 @@
 	</head>
 
 	<body>
-		<h1 class="heading">Game of Thrones Character Info Finder</h1>
+		<h1 class="heading">GoT Universe Info Generator</h1>
+		<div class="center-banner">
+			<span class="container">
+				<div class="card1">
+					<h3 class="char-title">Get random Characters info:</h3>
+					<button class="random-character">Get Random Character</button>
+					<div class="char-results"></div>
+					<button class="char-clear-btn">Collapse</button>
+				</div>
 
-		<h3>Get a characters info:</h3>
-		<div class="user-input">
-			<button class="random-character">Get Random Character</button>
+				<div class="card2">
+					<h3 class="house-title">Get random GoT House info:</h3>
+					<button class="rand-house">Get random GoT House</button>
+					<div class="house-results"></div>
+					<button class="house-clear-btn">Collapse</button>
+				</div>
+
+				<div class="card3">
+					<h3 class="book-title">Get random GoT Book info:</h3>
+					<button class="rand-book">Get random GoT Book</button>
+					<div class="book-results"></div>
+					<button class="book-clear-btn">Collapse</button>
+				</div>
+			</span>
 		</div>
-		<div class="results"></div>
+		<audio src="/audio/Game of Thrones.mp3" autoplay controls>
+			<p>If you are reading this, it is because your browser does not support the audio element.</p>
+		</audio>
 	</body>
 </html>
