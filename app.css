@@ -2,10 +2,11 @@ body {
     background-image: url("/resources/winter.jpg");
 }
 
-audio {
-    position: relative;
+/* audio {
     margin-top: 400px;
-}
+    display: flex;
+    flex-wrap: wrap;
+} */
 
 .heading {
     font-family: "game_of_thronesregular";
@@ -14,7 +15,9 @@ audio {
 }
 
 .center-banner {
-    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgba(31, 99, 216, 0.5);;
 }
 
 .container {
@@ -22,8 +25,7 @@ audio {
 }
 
 .card1 {
-
-    margin-left: 25px;
+    margin-left: 85px;
 }
 
 .card2 {
