@@ -11,17 +11,17 @@ houseClearBtn.hide();
 charClearBtn.hide();
 bookClearBtn.hide();
 
-// Generate Random Character Facts
-getCharacterBtn.on("click", () => {
+function getCharacterInfo() {
 	let randNum = Math.floor(Math.random() * 2138 + 1);
 	console.log(randNum);
-	let info = '<div class="char-card">';
+
 	$.get(`https://www.anapioficeandfire.com/api/characters/${randNum}`, (character) => {
+		let info = '<div class="char-card">';
 		if (character.died === "") {
-			character.died = "not dead...yet";
+			character.died = "(not dead...yet)";
 		}
 		if (character.born === "") {
-			character.born = "no date set";
+			character.born = "(no date set)";
 		}
 
 		// console.log(character.titles.length);
@@ -62,14 +62,14 @@ getCharacterBtn.on("click", () => {
 		charClearBtn.show();
 		$(getCharResultDiv).html(info);
 	});
-});
+}
 
-// Generate Random house Facts
-getHouseBtn.on("click", () => {
+function getHouseInfo() {
 	let randNum = Math.floor(Math.random() * 444 + 1);
 	console.log(randNum);
-	let info = '<div class="house-card">';
 	$.get(`https://www.anapioficeandfire.com/api/houses/${randNum}`, (house) => {
+		let info = '<div class="house-card">';
+
 		info += `<br><strong>House Name</strong>: ${house.name}</br>`;
 		if (house.region === "") {
 			info += `<br><strong>Region</strong>: There is no Region associated with this house!`;
@@ -80,15 +80,15 @@ getHouseBtn.on("click", () => {
 		info += "</div>";
 		$(getHouseResultDiv).html(info);
 	});
-});
+}
 
-//Random Book info
-getBookBtn.on("click", () => {
+function getBookInfo() {
 	let randNum = Math.floor(Math.random() * 12 + 1);
 	console.log(randNum);
 
-	let info = '<div class="book-card">';
 	$.get(`https://www.anapioficeandfire.com/api/books/${randNum}`, (book) => {
+		let info = '<div class="book-card">';
+
 		bookClearBtn.show();
 		info += `<br><a href='https://www.google.com/search?q=GOT%20${book.name}'>${book.name}</a></br>`;
 		info += "<br></br>";
@@ -97,6 +97,21 @@ getBookBtn.on("click", () => {
 
 		$(getBookResultDiv).html(info);
 	});
+}
+
+// Generate Random Character Facts
+getCharacterBtn.on("click", () => {
+	getCharacterInfo();
+});
+
+// Generate Random house Facts
+getHouseBtn.on("click", () => {
+	getHouseInfo();
+});
+
+//Random Book info
+getBookBtn.on("click", () => {
+	getBookInfo();
 });
 
 charClearBtn.on("click", () => {
