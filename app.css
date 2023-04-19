@@ -1,3 +1,52 @@
+body {
+    background-image: url("/resources/winter.jpg");
+}
+
+audio {
+    position: relative;
+    margin-top: 400px;
+}
+
 .heading {
+    font-family: "game_of_thronesregular";
     text-align: center;
+    text-decoration: underline;
+}
+
+.center-banner {
+    position: absolute;
+}
+
+.container {
+    display: inline-flex;
+}
+
+.card1 {
+
+    margin-left: 25px;
+}
+
+.card2 {
+
+    margin-left: 100px;
+}
+.card3 {
+    margin-left: 100px;
+}
+
+.char-title {
+    font-family: "game_of_thronesregular";
+}
+
+.house-title {
+    font-family: "game_of_thronesregular";
+}
+
+.book-title {
+        font-family: "game_of_thronesregular";
+    }
+
+button {
+    font-family: "game_of_thronesregular";
+    cursor: pointer;
 }
