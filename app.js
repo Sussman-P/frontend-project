@@ -19,7 +19,7 @@ function getCharacterInfo() {
 	let randNum = Math.floor(Math.random() * 2138 + 1);
 	console.log(randNum);
 
-	$.get(`https://www.anapioficeandfire.com/api/characters/1935`, (character) => {
+	$.get(`https://www.anapioficeandfire.com/api/characters/${randNum}`, (character) => {
 		let info = '<div class="char-card">';
 		if (character.died === "") {
 			character.died = "(not dead...yet)";
