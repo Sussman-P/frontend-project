@@ -19,7 +19,7 @@ function getCharacterInfo() {
 	let randNum = Math.floor(Math.random() * 2138 + 1);
 	console.log(randNum);
 
-	$.get(`https://www.anapioficeandfire.com/api/characters/${randNum}`, (character) => {
+	$.get(`https://www.anapioficeandfire.com/api/characters/1935`, (character) => {
 		let info = '<div class="char-card">';
 		if (character.died === "") {
 			character.died = "(not dead...yet)";
@@ -52,17 +52,21 @@ function getCharacterInfo() {
 		}
 		info += `</br>`;
 
+		info += `<br><strong>Played By</strong>: `;
 		for (let actor of character.playedBy) {
 			console.log(actor.length === 0);
 			if (actor.length === 0) {
-				info += `<br><strong>Played by</strong>: Not played by anyone in the show!</br>`;
+				info += ` Not played by anyone in the show!</br>`;
 			} else {
-				info += `<br><strong>Played By</strong>: <a href="https://www.google.com/search?q=${character.playedBy}">${character.playedBy}</a></br>`;
+				info += `<a href="https://www.google.com/search?q=GoT%20${character.playedBy}">${character.playedBy} </a></br>`;
+				break;
 			}
 		}
 		info += "<br></br>";
 
 		info += "</div>";
+
+		//console.log(info);
 		charClearBtn.show();
 		$(getCharResultDiv).html(info);
 	});
