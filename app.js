@@ -37,7 +37,7 @@ function getCharacterInfo() {
 			alert("This character has no name, so we used Aliases!");
 			for (let alias of character.aliases) {
 				character.name = alias;
-				info += `<br><strong>Aliases</strong>: ${alias}</br>`;
+				info += `<br><strong>Aliases: </strong>: ${alias}</br>`;
 			}
 		} else {
 			info += `<br><strong>Name</strong>: ${character.name}</br>`;
