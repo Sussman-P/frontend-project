@@ -1,15 +1,19 @@
-// Getting all the elements needed.
+//Generator Btns
 let getCharacterBtn = $(".random-character");
 let getHouseBtn = $(".rand-house");
 let getBookBtn = $(".rand-book");
+
+//Result Divs
 let getCharResultDiv = $(".char-results");
 let getHouseResultDiv = $(".house-results");
 let getBookResultDiv = $(".book-results");
+
+//Clear Btns
 let charClearBtn = $(".char-clear-btn");
 let houseClearBtn = $(".house-clear-btn");
 let bookClearBtn = $(".book-clear-btn");
 
-// Hiding the clear button.
+// Hiding the clear button at page load.
 houseClearBtn.hide();
 charClearBtn.hide();
 bookClearBtn.hide();
@@ -106,17 +110,17 @@ function getBookInfo() {
 	});
 }
 
-// Click Events
+// Generator Click Events
 getCharacterBtn.on("click", () => {
 	getCharacterInfo();
 });
 
-// Click Events
+// Generator Click Events
 getHouseBtn.on("click", () => {
 	getHouseInfo();
 });
 
-// Click Events
+// Generator Click Events
 getBookBtn.on("click", () => {
 	getBookInfo();
 });
